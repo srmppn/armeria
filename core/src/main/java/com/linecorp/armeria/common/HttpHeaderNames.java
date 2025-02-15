@@ -989,7 +989,7 @@ public final class HttpHeaderNames {
             return of((AsciiString) name);
         }
 
-        final String lowerCased = Ascii.toLowerCase(requireNonNull(name, "name"));
+        final String lowerCased = requireNonNull(name, "name").toString();
         final AsciiString cached = map.get(lowerCased);
         if (cached != null) {
             return cached;
@@ -1006,7 +1006,7 @@ public final class HttpHeaderNames {
      * @throws IllegalArgumentException if the specified {@code name} is not a valid header name.
      */
     public static AsciiString of(AsciiString name) {
-        final AsciiString lowerCased = name.toLowerCase();
+        final AsciiString lowerCased = name;
         final AsciiString cached = map.get(lowerCased);
         if (cached != null) {
             return cached;
